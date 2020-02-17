@@ -74,6 +74,8 @@ map <leader>v :tabnew ~/.vimrc<cr>
 " reload vimrc when saved
 au BufWritePost .vimrc so ~/.vimrc
 
+" jj to escape insert mode
+imap jj <Esc>
 
 " -----------------------------------------------------------------------------
 " Taken from http://vim.wikia.com/wiki/Example_vimrc
