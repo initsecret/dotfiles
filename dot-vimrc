@@ -1,0 +1,107 @@
+" .vimrc
+"
+
+" -----------------------------------------------------------------------------
+" Vundle stuff
+" -----------------------------------------------------------------------------
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'fatih/vim-go'
+Plugin 'preservim/nerdtree'
+Plugin 'dracula/vim', {'name':'dracula'}
+Plugin 'davidhalter/jedi-vim'
+Plugin 'lervag/vimtex'
+Plugin 'vim-scripts/indentpython.vim'
+call vundle#end()
+filetype plugin indent on
+
+" -----------------------------------------------------------------------------
+" Some of my stuff
+" -----------------------------------------------------------------------------
+
+set background=dark
+set t_Co=256
+ 
+syntax on
+colorscheme dracula
+set number
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set mouse=a
+
+set spell
+
+" mapping to make movements operate on 1 screen line in wrap mode
+" From https://stackoverflow.com/a/4952200
+function! ScreenMovement(movement)
+    if &wrap
+        return "g" . a:movement
+    else
+        return a:movement
+    endif
+endfunction
+onoremap <silent> <expr> j ScreenMovement("j")
+onoremap <silent> <expr> k ScreenMovement("k")
+onoremap <silent> <expr> 0 ScreenMovement("0")
+onoremap <silent> <expr> ^ ScreenMovement("^")
+onoremap <silent> <expr> $ ScreenMovement("$")
+nnoremap <silent> <expr> j ScreenMovement("j")
+nnoremap <silent> <expr> k ScreenMovement("k")
+nnoremap <silent> <expr> 0 ScreenMovement("0")
+nnoremap <silent> <expr> ^ ScreenMovement("^")
+nnoremap <silent> <expr> $ ScreenMovement("$")
+
+let g:vimtex_view_method = "skim"
+
+" Space as leader
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" select all
+map <Leader>a ggVG
+" edit vimrc
+map <leader>v :tabnew ~/.vimrc<cr>
+" reload vimrc when saved
+au BufWritePost .vimrc so ~/.vimrc
+
+
+" -----------------------------------------------------------------------------
+" Taken from http://vim.wikia.com/wiki/Example_vimrc
+" -----------------------------------------------------------------------------
+set wildmenu
+set showcmd
+set hlsearch
+
+set ignorecase
+set smartcase
+
+set backspace=indent,eol,start
+set autoindent
+ 
+set confirm
+set cmdheight=2
+
+nnoremap <C-L> :nohl<CR><C-L>
+
+" -----------------------------------------------------------------------------
+" More of my stuff
+" -----------------------------------------------------------------------------
+
+" NerdTree on Ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+
+" Show trailing spaces
+set list
+set listchars+=trail:◦
+
+
