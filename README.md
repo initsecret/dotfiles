@@ -2,13 +2,12 @@
 
 ### tmux
 
-I use vanilla [gpakosz/.tmux](https://github.com/gpakosz/.tmux).
+See `dot-tmux.conf`.
 
 ### vim
 
 See `dot-vimrc`.
 
-###
+### emacs
 
-
-
+I stopped using emacs.
