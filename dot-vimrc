@@ -29,6 +29,8 @@ filetype plugin indent on
 
 set background=dark
 set t_Co=256
+
+set textwidth=80
  
 syntax on
 colorscheme dracula
@@ -73,6 +75,10 @@ map <Leader>a ggVG
 map <leader>v :tabnew ~/.vimrc<cr>
 " reload vimrc when saved
 au BufWritePost .vimrc so ~/.vimrc
+" save file
+noremap <Leader>s :update<CR>
+" select all
+map <Leader>r vipgq
 
 " jj to escape insert mode
 imap jj <Esc>
@@ -105,5 +111,3 @@ map <C-n> :NERDTreeToggle<CR>
 " Show trailing spaces
 set list
 set listchars+=trail:◦
-
-
