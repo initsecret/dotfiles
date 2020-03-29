@@ -22,6 +22,8 @@ Plugin 'lervag/vimtex'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'maralla/completor.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -84,6 +86,10 @@ noremap <Leader>s :update<CR>
 map <Leader>r vipgq
 " save file
 noremap <Leader>s :update<CR>
+" fuzzy file search
+noremap <Leader>f :Files<CR>
+" ripgrep
+noremap <Leader>g :Rg 
 
 " jj to escape insert mode
 imap jj <Esc>

@@ -1,4 +1,5 @@
-# Dotfiles for my mac
+#
+Dotfiles for my mac
 
 ### tmux
 
