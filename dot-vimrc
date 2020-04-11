@@ -1,6 +1,5 @@
 " .vimrc
 "
-
 " -----------------------------------------------------------------------------
 " Vundle stuff
 " -----------------------------------------------------------------------------
@@ -14,16 +13,15 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'fatih/vim-go'
 Plugin 'preservim/nerdtree'
 Plugin 'dracula/vim', {'name':'dracula'}
-Plugin 'davidhalter/jedi-vim'
 Plugin 'lervag/vimtex'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'maralla/completor.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'dahu/vim-fanfingtastic'
 call vundle#end()
 filetype plugin indent on
 
@@ -35,17 +33,25 @@ set background=dark
 set t_Co=256
 
 set textwidth=80
- 
 syntax on
-colorscheme dracula
+
 set number
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+if has("gui_running")
+    colorscheme gruvbox
+else
+    colorscheme dracula
+endif
+
 
 set mouse=a
 
 set spell
+
+" Use system clipboard
+set clipboard=unnamed
 
 " mapping to make movements operate on 1 screen line in wrap mode
 " From https://stackoverflow.com/a/4952200
