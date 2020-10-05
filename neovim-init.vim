@@ -27,7 +27,22 @@ call plug#begin("~/.vim/plugged")
   Plug 'dracula/vim', {'name':'dracula'}
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'airblade/vim-gitgutter'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'whatyouhide/vim-gotham'
+  Plug 'rhysd/vim-clang-format'
 call plug#end()
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+let g:deoplete#enable_at_startup = 1
+
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
 
 "-------------------------------------------------------------------------------
 " Basic Config
@@ -39,12 +54,11 @@ endif
 syntax enable
 if has("gui_running")
     colorscheme gruvbox
-    " colorscheme afterglow
-" else
-"     colorscheme dracula
+else
+    colorscheme gotham
 endif
 
-set textwidth=80
+" set textwidth=80
 
 set number
 set shiftwidth=4
@@ -82,8 +96,10 @@ map <Leader>r vipgq
 noremap <Leader>s :update<CR>
 " " fuzzy file search
 " noremap <Leader>f :Files<CR>
-" " ripgrep
-" noremap <Leader>g :Rg 
+" ripgrep
+noremap <Leader>g :Rg 
+" reload init.vim
+nnoremap <leader>i :source $MYVIMRC<CR>
 
 "-------------------------------------------------------------------------------
 " Terminal config
