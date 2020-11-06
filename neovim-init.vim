@@ -26,12 +26,14 @@ call plug#begin("~/.vim/plugged")
   Plug 'danilo-augusto/vim-afterglow'
   Plug 'dracula/vim', {'name':'dracula'}
   Plug 'ludovicchabant/vim-gutentags'
+  Plug 'skywind3000/gutentags_plus'
   Plug 'airblade/vim-gitgutter'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'whatyouhide/vim-gotham'
   Plug 'rhysd/vim-clang-format'
+  Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
 
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -43,6 +45,15 @@ let g:deoplete#enable_at_startup = 1
 
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
+
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+" config project root markers.
+let g:gutentags_project_root = ['.root']
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+" change focus to quickfix window after search (optional).
+let g:gutentags_plus_switch = 1
 
 "-------------------------------------------------------------------------------
 " Basic Config
@@ -58,7 +69,7 @@ else
     colorscheme gotham
 endif
 
-" set textwidth=80
+set textwidth=10000
 
 set number
 set shiftwidth=4
@@ -85,9 +96,9 @@ let mapleader=" "
 " select all
 map <Leader>a ggVG
 " edit vimrc
-map <leader>v :tabnew ~/.vimrc<cr>
+map <leader>v :tabnew ~/.config/nvim/init.vim<cr>
 " reload vimrc when saved
-au BufWritePost .vimrc so ~/.vimrc
+" au BufWritePost .vimrc so ~/.vimrc
 " save file
 noremap <Leader>s :update<CR>
 " select all
@@ -99,7 +110,7 @@ noremap <Leader>s :update<CR>
 " ripgrep
 noremap <Leader>g :Rg 
 " reload init.vim
-nnoremap <leader>i :source $MYVIMRC<CR>
+nnoremap <leader>i :source ~/.config/nvim/init.vim<CR>
 
 "-------------------------------------------------------------------------------
 " Terminal config
