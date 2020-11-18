@@ -34,6 +34,10 @@ call plug#begin("~/.vim/plugged")
   Plug 'whatyouhide/vim-gotham'
   Plug 'rhysd/vim-clang-format'
   Plug 'psf/black', { 'branch': 'stable' }
+  Plug 'prettier/vim-prettier', {
+      \ 'do': 'yarn install',
+      \ 'branch': 'release/0.x'
+      \ }
 call plug#end()
 
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -54,6 +58,8 @@ let g:gutentags_project_root = ['.root']
 let g:gutentags_cache_dir = expand('~/.cache/tags')
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
+" Exclude certain file types from tag generation
+let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
 
 "-------------------------------------------------------------------------------
 " Basic Config
@@ -196,3 +202,9 @@ nmap <silent> <F2> <Plug>(lcn-rename)
 " Tags
 "------------------------------------------------------------------------------
 " set statusline+=%{gutentags#statusline()}
+
+"------------------------------------------------------------------------------
+" Mozilla Stuff
+"------------------------------------------------------------------------------
+au BufNewFile,BufRead,BufReadPost *.jsm set syntax=javascript
+
