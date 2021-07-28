@@ -2,23 +2,34 @@ Import-Module posh-git
 Import-Module oh-my-posh
 Set-Theme Robbyrussell
 
+# Turn off bell
+Set-PSReadlineOption -BellStyle None
+
+# Use bash-style keybindings
+Set-PSReadlineOption -EditMode Emacs
+
 $env:path += ";C:\Program Files\LLVM\bin"
+$env:path += ";C:\Go\bin"
 $env:path += ";C:\Users\sanke\LocalBin"
 $env:path += ";C:\Users\sanke\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts"
+$env:path += ";C:\Users\sanke\AppData\Local\Microsoft\WindowsApps"
+$env:path += ";C:\Users\sanke\AppData\Roaming\Python\Python39\Scripts"
 
-Set-Alias -Name vi -Value vim 
+Set-Alias -Name vi -Value nvim
+Set-Alias -Name vim -Value nvim
 Set-Alias -Name grep -Value Select-String
+Set-Alias -Name which -Value Get-Command
 
 # Git Aliases, adapted from
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh#L28
 Set-Alias -Name  g -Value 'git'
 function ga { git add @args }
-function gaa  { git add --all @args }
-function gapa  { git add --patch @args }
-function gau  { git add --update @args }
-function gav  { git add --verbose @args }
-function gap  { git apply @args }
-function gapt  { git apply --3way @args }
+function gaa { git add --all @args }
+function gapa { git add --patch @args }
+function gau { git add --update @args }
+function gav { git add --verbose @args }
+function gap { git apply @args }
+function gapt { git apply --3way @args }
 function gb { git branch @args }
 function gba { git branch -a @args }
 function gbd { git branch -d @args }
@@ -65,6 +76,7 @@ function glgg { git log --graph @args }
 function glgga { git log --graph --decorate --all @args }
 function glgm { git log --graph --max-count=10 @args }
 function glo { git log --oneline --decorate @args }
+function gg { git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' @args }
 function glol { git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' @args }
 function glols { git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --stat @args }
 function glod { git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' @args }
