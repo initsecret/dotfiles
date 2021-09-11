@@ -1,116 +1,65 @@
 {
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "explorer.confirmDelete": false,
-    "extensions.ignoreRecommendations": true,
-    "editor.fontSize": 14,
-    "window.zoomLevel": 2,
-    "editor.rulers": [
-        80,
-        120
-    ],
-    "cSpell.userWords": [
-        "microcontrollers"
-    ],
-    "editor.renderControlCharacters": true,
-    "editor.renderWhitespace": "boundary",
-    "editor.largeFileOptimizations": false,
-    "window.title": "${dirty}${activeEditorMedium}",
-    "editor.fontFamily": "Fira Code",
-    "editor.fontLigatures": true,
-    "workbench.colorTheme": "Gruvbox Dark Hard",
-    "vim.easymotion": true,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<leader>",
-                "s"
-            ],
-            "commands": [
-                ":w"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "q"
-            ],
-            "commands": [
-                ":wq"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d"
-            ],
-            "after": [
-                "d",
-                "d"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "v"
-            ],
-            "commands": [
-                ":tabnew ~/Library/Application Support/Code/User/settings.json"
-            ]
-        },
-        {
-            "before": [
-                "<C-n>"
-            ],
-            "commands": [
-                ":nohl"
-            ]
-        }
-    ],
-    "vim.leader": "<space>",
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false
+  "latex-utilities.message.update.show": false,
+  "latex-workshop.view.pdf.viewer": "browser",
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "explorer.confirmDelete": false,
+  "extensions.ignoreRecommendations": true,
+  "editor.fontSize": 14,
+  "editor.rulers": [80, 120],
+  "cSpell.userWords": ["microcontrollers", "Ciphertext"],
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.largeFileOptimizations": false,
+  "window.title": "${dirty}${activeEditorMedium}",
+  "editor.fontLigatures": true,
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "s"],
+      "commands": [":w"]
     },
-    "files.eol": "\n",
-    "editor.formatOnSaveTimeout": 5000,
-    "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
-    "C_Cpp.clang_format_style": "file",
-    "C_Cpp.clang_format_fallbackStyle": "Google",
-    "[cpp]": {
-        "editor.formatOnSave": true,
+    {
+      "before": ["<leader>", "q"],
+      "commands": [":wq"]
     },
-    "[c]": {
-        "editor.formatOnSave": true,
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
     },
-    "[html]": {
-        "editor.formatOnSave": false,
+    {
+      "before": ["<leader>", "v"],
+      "commands": [
+        ":tabnew ~/Library/Application Support/Code/User/settings.json"
+      ]
     },
-    "[js]": {
-        "editor.formatOnSave": false,
-    },
-    "readOnlyModeSupport.ignore": [
-        "/Users/sanketh/Library/Application Support/Code/User/settings.json"
-    ],
-    "clang-format.fallbackStyle": "Google",
-    "editor.formatOnSave": true,
-    "python.formatting.provider": "black",
-    "[javascript]": {
-        "editor.formatOnSave": false
-    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "files.eol": "\n",
+  "python.formatting.provider": "black",
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
